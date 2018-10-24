@@ -1,0 +1,72 @@
+<form>
+  <div class="form-row align-items-center">
+    <div class="col-sm-3 my-1">
+      <label for="from">From</label>
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <div class="input-group-text">
+            <i class="fas fa-plane-departure"></i>
+          </div>
+        </div>
+        <input type="text" class="form-control text-uppercase"
+               name="from" id="from" [(ngModel)]="from">
+      </div>
+    </div>
+
+    <div class="col-sm-3 my-1">
+      <label for="to">To</label>
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <div class="input-group-text">
+            <i class="fas fa-plane-arrival"></i>
+          </div>
+        </div>
+        <input type="text" class="form-control text-uppercase"
+               name="to" id="to" [(ngModel)]="to">
+      </div>
+    </div>
+
+    <div class="col-sm-3 my-1">
+      <label for="dates">Departure Date</label>
+      <input type="text"
+             id="dates"
+             name="dates"
+             placeholder="Dates"
+             class="form-control"
+             [(ngModel)]="departAt"
+             bsDatepicker>
+    </div>
+
+    <div class="col-sm-2 my-1">
+      <label for="cabin">Cabin Class</label>
+      <select class="form-control"
+              name="cabin"
+              id="cabin" [(ngModel)]="cabinClass">
+        <option>Economy</option>
+        <option>Business</option>
+      </select>
+    </div>
+
+    <div class="col-sm-1 my-1">
+      <label for="travellers">Travellers</label>
+      <select class="form-control"
+              id="travellers"
+              name="travellers"
+              [(ngModel)]="travellers">
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+      </select>
+    </div>
+  </div>
+  <br>
+  <div class="row justify-content-end">
+    <div class="col-auto my-1">
+      <button type="button" class="btn btn-lg btn-primary"
+              (click)="onSubmit()"
+              style=" border-color: #5CB85B; background-color: #5CB85B">Search &raquo;</button>
+    </div>
+  </div>
+</form>

@@ -33,7 +33,7 @@
              name="dates"
              placeholder="Dates"
              class="form-control"
-             [(ngModel)]="departAt"
+             [(ngModel)]="depart"
              bsDatepicker>
     </div>
 
@@ -41,9 +41,9 @@
       <label for="cabin">Cabin Class</label>
       <select class="form-control"
               name="cabin"
-              id="cabin" [(ngModel)]="cabinClass">
-        <option>Economy</option>
-        <option>Business</option>
+              id="cabin" [(ngModel)]="cabin">
+        <option *ngFor="let cabinClass of cabinClasses"
+                [value]="cabinClass.value">{{cabinClass.name}}</option>
       </select>
     </div>
 

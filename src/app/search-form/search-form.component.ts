@@ -9,11 +9,16 @@ export class SearchFormComponent implements OnInit {
 
   from: string;
   to: string;
+  cabin = 5;
   travellers = 1;
-  departAt: Date;
-  // returnAt: Date;
-  // dateRange: Date[];
-  cabinClass = 'Economy';
+  depart = new Date();
+
+  cabinClasses = [
+    { name: 'Economy', value: 5 },
+    { name: 'Premium Economy', value: 4 },
+    { name: 'Business', value: 2 },
+    { name: 'First', value: 1 },
+  ];
 
   constructor() { }
 
@@ -21,10 +26,9 @@ export class SearchFormComponent implements OnInit {
   }
 
   onSubmit() {
-    // [this.departAt, this.returnAt] = this.dateRange;
-    console.log(this.from, this.to);
-    console.log(this.travellers, this.cabinClass);
-    console.log('departAt', this.departAt);
-    // console.log('returnAt', this.returnAt);
+    console.log(this.from, '<->', this.to);
+    console.log('cabin class', this.cabin);
+    console.log('# of travellers', this.travellers);
+    console.log('date', this.depart);
   }
 }

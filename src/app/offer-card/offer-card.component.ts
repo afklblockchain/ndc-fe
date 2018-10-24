@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Offer } from './offer';
 
 @Component({
   selector: 'afkl-offer-card',
@@ -6,6 +7,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./offer-card.component.scss']
 })
 export class OfferCardComponent implements OnInit {
+
+  @Input() offer: Offer;
+  showDetails = false;
 
   constructor() { }
 

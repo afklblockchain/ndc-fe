@@ -1,3 +1,5 @@
-<!--<div *ngFor="let offer in offers">-->
-  <afkl-offer-card></afkl-offer-card>
-<!--</div>-->
+<div class="row justify-content-center" *ngFor="let offer of offers">
+  <div class="col-sm-12">
+    <afkl-offer-card [offer]="offer"></afkl-offer-card>
+  </div>
+</div>

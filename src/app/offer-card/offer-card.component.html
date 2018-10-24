@@ -1,8 +1,12 @@
-<div class="card" style="width: 18rem;">
+<div class="offer-card card" (click)="showDetails = !showDetails">
   <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-    <p class="card-text">Lorem ipsum dolor sit amet</p>
+    <h5 class="card-title">{{offer.legs[0].timeDeparture}} - {{offer.legs[offer.legs.length-1].timeArrival}}</h5>
+    <h6 class="card-subtitle mb-2 text-muted">{{offer.legs[0].origin}} - {{offer.legs[offer.legs.length-1].dest}}</h6>
+
+    <h3 class="card-text">{{offer.price}}</h3>
     <a href="#" class="btn btn-primary">Select</a>
+  </div>
+  <div class="card-body" #details *ngIf="showDetails">
+    details
   </div>
 </div>

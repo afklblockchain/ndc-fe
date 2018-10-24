@@ -1,12 +1,20 @@
 <div class="offer-card card" (click)="showDetails = !showDetails">
   <div class="card-body">
-    <h5 class="card-title">{{offer.legs[0].timeDeparture}} - {{offer.legs[offer.legs.length-1].timeArrival}}</h5>
-    <h6 class="card-subtitle mb-2 text-muted">{{offer.legs[0].origin}} - {{offer.legs[offer.legs.length-1].dest}}</h6>
-
-    <h3 class="card-text">{{offer.price}}</h3>
-    <a href="#" class="btn btn-primary">Select</a>
+    <div class="row">
+      <div class="col-sm-6">
+        <h5 class="card-title">{{offer.legs[0].timeDeparture}} - {{offer.legs[offer.legs.length-1].timeArrival}}</h5>
+        <h6 class="card-subtitle mb-2 text-muted">{{offer.legs[0].origin}} - {{offer.legs[offer.legs.length-1].dest}}</h6>
+      </div>
+      <div class="col-sm-6">
+        <h3 class="card-text">{{offer.price}}</h3>
+        <a href="#" class="btn btn-primary">Select</a>
+      </div>
+    </div>
   </div>
-  <div class="card-body" #details *ngIf="showDetails">
-    details
+  <div class="card-body" *ngIf="showDetails">
+    <div *ngFor="let leg of offer.legs">
+      <div>{{leg.timeDeparture}} {{leg.origin}}</div>
+      <div>{{leg.timeArrival}} {{leg.dest}}</div>
+    </div>
   </div>
 </div>

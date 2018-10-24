@@ -7,6 +7,7 @@ import { FormsModule } from '@angular/forms';
 import { SearchFormComponent } from './search-form/search-form.component';
 import { OfferListComponent } from './offer-list/offer-list.component';
 import { OfferCardComponent } from './offer-card/offer-card.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { OfferCardComponent } from './offer-card/offer-card.component';
   imports: [
     FormsModule,
     BrowserModule,
+    HttpClientModule,
     BsDatepickerModule.forRoot()
   ],
   providers: [],

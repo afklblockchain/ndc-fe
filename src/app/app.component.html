@@ -18,12 +18,12 @@
     <h1>Best Offers!</h1>
     <h5>Powered by Blockchain <i class="fas fa-bolt"></i></h5>
     <br>
-    <afkl-search-form></afkl-search-form>
+    <afkl-search-form (submit)="onSubmit($event)"></afkl-search-form>
   </div>
 </div>
 
 <div class="container">
-  <afkl-offer-list></afkl-offer-list>
+  <afkl-offer-list [offers]="offers"></afkl-offer-list>
   <br>
   <hr>
   <footer>

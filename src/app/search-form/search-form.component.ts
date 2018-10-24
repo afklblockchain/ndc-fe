@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { SearchRequest } from './search';
 
 @Component({
   selector: 'afkl-search-form',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./search-form.component.scss']
 })
 export class SearchFormComponent implements OnInit {
+
+  @Output() submit = new EventEmitter<SearchRequest>();
 
   from: string;
   to: string;
@@ -26,9 +29,8 @@ export class SearchFormComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.from, '<->', this.to);
-    console.log('cabin class', this.cabin);
-    console.log('# of travellers', this.travellers);
-    console.log('date', this.depart);
+    this.submit.emit({
+      from: this.from, to: this.to, cabin: this.cabin, travellers: this.travellers
+    });
   }
 }

@@ -17,11 +17,11 @@ export class OfferService {
 
   constructor(public httpClient: HttpClient) {}
 
-  searchForOffers(searchRequest: SearchRequest): Observable<Offer[]> {
+  searchForOffers(searchRequest: SearchRequest): Promise<Offer[][]> {
     console.log('searchRequest', searchRequest);
-    return this.httpClient.post<Offer[]>(this.searchUrl, searchRequest, this.httpOptions).pipe(
+    return this.httpClient.post<Offer[][]>(this.searchUrl, searchRequest, this.httpOptions).pipe(
       catchError(this.handleError<any>('searchForOffers'))
-    );
+    ).toPromise();
   }
 
   private handleError<T> (operation = 'operation', result?: T) {

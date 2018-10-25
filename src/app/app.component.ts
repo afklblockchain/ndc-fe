@@ -10,11 +10,15 @@ import { OfferService } from './offer.service';
 })
 export class AppComponent {
 
-  offers: Offer[];
+  offers: Offer[] = [];
 
-  constructor(public offerService: OfferService) {}
+  constructor(public offerService: OfferService) {
+  }
 
   onSubmit(searchRequest: SearchRequest) {
-    this.offerService.searchForOffers(searchRequest).subscribe(offers => this.offers = offers);
+    this.offers = [];
+    this.offerService.searchForOffers(searchRequest)
+      .then(offers => this.offers = offers[0])
+      .catch(error => console.error(error));
   }
 }

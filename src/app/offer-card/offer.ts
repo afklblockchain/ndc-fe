@@ -4,7 +4,7 @@ export interface Offer {
   origin: string;
   dest: string;
   travelTime: string;
-  legs: Leg[];
+  segments: Leg[];
 }
 
 export interface Leg {

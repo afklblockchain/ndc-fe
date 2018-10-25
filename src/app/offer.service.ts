@@ -18,7 +18,7 @@ export class OfferService {
         origin: 'AMS',
         dest: 'LHR',
         travelTime: 'P0Y0M0DT10H55M0.000S',
-        legs: [
+        segments: [
           {
             origin: 'AMS',
             dest: 'LHR',
@@ -36,7 +36,7 @@ export class OfferService {
         origin: 'AMS',
         dest: 'LHR',
         travelTime: 'P0Y0M0DT10H55M0.000S',
-        legs: [
+        segments: [
           {
             origin: 'AMS',
             dest: 'CDG',

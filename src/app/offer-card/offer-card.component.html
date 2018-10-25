@@ -4,34 +4,53 @@
       <div class="col-sm-9">
         <div class="row align-items-center">
           <div class="col-3 text-center">
-            <h4 class="card-title">{{offer.legs[0].timeDeparture}}</h4>
-            <h5 class="card-subtitle mb-2 text-muted">{{offer.legs[0].origin}}</h5>
+            <h4 class="card-title">{{offer.segments[0].timeDeparture}}</h4>
+            <h5 class="card-subtitle mb-2 text-muted">{{offer.segments[0].origin}}</h5>
           </div>
           <div class="col-6 text-center align-self-center">
             <div class="row align-items-center justify-content-center">
-              <div class="col"><p class="m-0"><small>{{flightTime(offer.travelTime)}}</small></p></div>
+              <div class="col">
+                <p class="m-0">
+                  <small>{{flightTime(offer.travelTime)}}</small>
+                </p>
+              </div>
               <div class="col-1"></div>
             </div>
             <div class="row align-items-center">
-              <div class="col p-0"><hr style="border: 2px solid #bbb; border-bottom-left-radius: 50px; border-top-left-radius: 50px;"></div>
-              <div class="col-auto p-0" *ngFor="let _ of numberOfStops()">
+              <div class="col p-0">
+                <hr style="border: 2px solid #bbb; border-bottom-left-radius: 50px; border-top-left-radius: 50px;">
+              </div>
+              <div class="col-auto p-0" *ngFor="let _ of numberOfStops(offer.segments)">
                 <div style="border: 3px solid orangered; border-radius: 100%; margin: 5px;"></div>
               </div>
-              <div class="col p-0"><hr style="border: 2px solid #bbb; border-bottom-right-radius: 50px; border-top-right-radius: 50px;"></div>
+              <div class="col p-0">
+                <hr style="border: 2px solid #bbb; border-bottom-right-radius: 50px; border-top-right-radius: 50px;">
+              </div>
               <div class="col-auto"><i class="fas fa-plane"></i></div>
             </div>
-            <div *ngIf="numberOfStops().length > 0" class="row align-items-center justify-content-center">
-              <div class="col"><p class="m-0"><small style="color: orangered;">{{numberOfStops().length}} {{numberOfStops().length == 1 ? 'stop' : 'stops'}}</small></p></div>
+            <div *ngIf="numberOfStops(offer.segments).length > 0" class="row align-items-center justify-content-center">
+              <div class="col">
+                <p class="m-0">
+                  <small style="color: orangered;">
+                    {{numberOfStops(offer.segments).length}} {{numberOfStops(offer.segments).length == 1 ? 'stop' :
+                    'stops'}}
+                  </small>
+                </p>
+              </div>
               <div class="col-1"></div>
             </div>
-            <div *ngIf="numberOfStops().length === 0" class="row align-items-center justify-content-center">
-              <div class="col"><p class="m-0"><small style="color: limegreen;">Direct</small></p></div>
+            <div *ngIf="numberOfStops(offer.segments).length === 0" class="row align-items-center justify-content-center">
+              <div class="col">
+                <p class="m-0">
+                  <small style="color: limegreen;">Direct</small>
+                </p>
+              </div>
               <div class="col-1"></div>
             </div>
           </div>
           <div class="col-3 text-center">
-            <h4 class="card-title">{{offer.legs[offer.legs.length-1].timeArrival}}</h4>
-            <h5 class="card-subtitle mb-2 text-muted">{{offer.legs[offer.legs.length-1].dest}}</h5>
+            <h4 class="card-title">{{offer.segments[offer.segments.length-1].timeArrival}}</h4>
+            <h5 class="card-subtitle mb-2 text-muted">{{offer.segments[offer.segments.length-1].dest}}</h5>
           </div>
         </div>
       </div>
@@ -42,7 +61,7 @@
     </div>
   </div>
   <div class="card-body" *ngIf="showDetails">
-    <div *ngFor="let leg of offer.legs" style="padding: 0 30px 10px 30px;">
+    <div *ngFor="let leg of offer.segments" style="padding: 0 30px 10px 30px;">
       <table cellpadding="10" style="width: 100%;">
         <tr>
           <td align="center">
@@ -52,7 +71,9 @@
         </tr>
         <tr>
           <td rowspan="2" width="5%" align="center" style="padding: 2px;">
-            <div class="offer-leg-circles"><div class="offer-leg"></div></div>
+            <div class="offer-leg-circles">
+              <div class="offer-leg"></div>
+            </div>
           </td>
           <td width="10%">{{leg.timeDeparture}}</td>
           <td>{{leg.origin}}</td>

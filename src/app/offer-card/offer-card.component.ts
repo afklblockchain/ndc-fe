@@ -20,8 +20,8 @@ export class OfferCardComponent implements OnInit {
     event.stopPropagation();
   }
 
-  numberOfStops() {
-    return Array(this.offer.legs.length - 1);
+  numberOfStops(legs) {
+    return legs ? Array(legs.length - 1) : [];
   }
 
   logoUrl(airlineCode) {

@@ -17,8 +17,8 @@ export class OfferService {
 
   constructor(public httpClient: HttpClient) {}
 
-  searchForOffers(searchRequest: SearchRequest): Promise<Offer[][]> {
-    return this.httpClient.post<Offer[][]>(this.searchUrl, searchRequest, this.httpOptions).pipe(
+  searchForOffers(searchRequest: SearchRequest): Promise<Offer[]> {
+    return this.httpClient.post<Offer[]>(this.searchUrl, searchRequest, this.httpOptions).pipe(
       catchError(this.handleError<any>('searchForOffers'))
     ).toPromise();
   }

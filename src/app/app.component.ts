@@ -21,7 +21,7 @@ export class AppComponent {
     this.loading = true;
     this.offerService.searchForOffers(searchRequest)
       .then(offers => {
-        this.offers = offers[0];
+        this.offers = offers;
         this.loading = false;
       })
       .catch(error => {

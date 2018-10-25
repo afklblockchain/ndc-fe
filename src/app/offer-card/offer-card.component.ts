@@ -11,7 +11,8 @@ export class OfferCardComponent implements OnInit {
   @Input() offer: Offer;
   showDetails = false;
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit() {
   }
@@ -29,6 +30,9 @@ export class OfferCardComponent implements OnInit {
   }
 
   flightTime(travelTime) {
+    if (!travelTime) {
+      return '';
+    }
     const mm = travelTime.indexOf('M');
     const d = travelTime.indexOf('D');
     const t = travelTime.indexOf('T');

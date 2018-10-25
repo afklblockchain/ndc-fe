@@ -23,14 +23,19 @@ export class SearchFormComponent implements OnInit {
     { name: 'First', value: 1 },
   ];
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit() {
   }
 
   onSubmit() {
     this.submit.emit({
-      from: this.from, to: this.to, cabinClass: this.cabin, nbPax: this.travellers
+      from: this.from,
+      to: this.to,
+      date: this.depart.toISOString().substr(0, this.depart.toISOString().indexOf('T')),
+      cabinClass: this.cabin,
+      nbPax: this.travellers
     });
   }
 }

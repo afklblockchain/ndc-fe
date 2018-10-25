@@ -29,9 +29,11 @@ export class OfferCardComponent implements OnInit {
   }
 
   flightTime(travelTime) {
-    const tIndex = travelTime.indexOf('T');
-    const hour = travelTime.substr(tIndex + 1, 2);
-    const min = travelTime.substr(tIndex + 4, 2);
+    const t = travelTime.indexOf('T');
+    const h = travelTime.indexOf('H');
+    const m = travelTime.indexOf('M', t);
+    const hour = travelTime.substring(t + 1, h);
+    const min = travelTime.substring(h + 1, m);
     return `${hour}h ${min}`;
   }
 }

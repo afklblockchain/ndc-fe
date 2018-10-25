@@ -15,7 +15,6 @@ export class AppComponent {
   constructor(public offerService: OfferService) {}
 
   onSubmit(searchRequest: SearchRequest) {
-    console.log('searchRequest', searchRequest);
-    this.offerService.searchForOffers().subscribe(offers => this.offers = offers);
+    this.offerService.searchForOffers(searchRequest).subscribe(offers => this.offers = offers);
   }
 }

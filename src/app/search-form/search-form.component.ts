@@ -30,7 +30,7 @@ export class SearchFormComponent implements OnInit {
 
   onSubmit() {
     this.submit.emit({
-      from: this.from, to: this.to, cabin: this.cabin, travellers: this.travellers
+      from: this.from, to: this.to, cabinClass: this.cabin, nbPax: this.travellers
     });
   }
 }

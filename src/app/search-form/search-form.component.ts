@@ -10,8 +10,8 @@ export class SearchFormComponent implements OnInit {
 
   @Output() submit = new EventEmitter<SearchRequest>();
 
-  from: string;
-  to: string;
+  from = 'ams';
+  to = 'jfk';
   cabin = 5;
   travellers = 1;
   depart = new Date();
@@ -31,8 +31,8 @@ export class SearchFormComponent implements OnInit {
 
   onSubmit() {
     this.submit.emit({
-      from: this.from,
-      to: this.to,
+      from: this.from ? this.from.toUpperCase() : this.from,
+      to: this.to ? this.to.toUpperCase() : this.to,
       date: this.depart.toISOString().substr(0, this.depart.toISOString().indexOf('T')),
       cabinClass: this.cabin,
       nbPax: this.travellers

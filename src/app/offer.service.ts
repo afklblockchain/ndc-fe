@@ -13,7 +13,7 @@ export class OfferService {
   private httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
-  private searchUrl = '/search';
+  private searchUrl = '/api/search';
 
   constructor(public httpClient: HttpClient) {}
 

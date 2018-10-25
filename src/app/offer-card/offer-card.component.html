@@ -42,9 +42,24 @@
     </div>
   </div>
   <div class="card-body" *ngIf="showDetails">
-    <div *ngFor="let leg of offer.legs">
-      <div>{{leg.timeDeparture}} {{leg.origin}}</div>
-      <div>{{leg.timeArrival}} {{leg.dest}}</div>
+    <div *ngFor="let leg of offer.legs" style="padding: 0 30px 10px 30px;">
+      <table cellpadding="10" style="width: 100%;">
+        <tr>
+          <td align="center">
+            <img style="width: 30px;" src="https://www.skyscanner.net/images/airlines/favicon/KL.png" alt="">
+          </td>
+          <td colspan="2">{{leg.flightNumber}}</td>
+        </tr>
+        <tr>
+          <td rowspan="2" width="5%" align="center">a</td>
+          <td width="10%">{{leg.timeDeparture}}</td>
+          <td>{{leg.origin}}</td>
+        </tr>
+        <tr>
+          <td>{{leg.timeArrival}}</td>
+          <td>{{leg.dest}}</td>
+        </tr>
+      </table>
     </div>
   </div>
 </div>

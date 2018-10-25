@@ -29,11 +29,14 @@ export class OfferCardComponent implements OnInit {
   }
 
   flightTime(travelTime) {
+    const mm = travelTime.indexOf('M');
+    const d = travelTime.indexOf('D');
     const t = travelTime.indexOf('T');
     const h = travelTime.indexOf('H');
     const m = travelTime.indexOf('M', t);
+    const day = travelTime.substring(mm + 1, d);
     const hour = travelTime.substring(t + 1, h);
     const min = travelTime.substring(h + 1, m);
-    return `${hour}h ${min}`;
+    return `${day > 0 ? day + 'd ' : ''}${hour}h ${min}`;
   }
 }

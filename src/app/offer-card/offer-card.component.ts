@@ -19,4 +19,8 @@ export class OfferCardComponent implements OnInit {
   onSelect(event) {
     event.stopPropagation();
   }
+
+  numberOfStops() {
+    return Array(this.offer.legs.length - 1);
+  }
 }

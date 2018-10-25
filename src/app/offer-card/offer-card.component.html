@@ -2,22 +2,41 @@
   <div class="card-body">
     <div class="row align-items-center">
       <div class="col-sm-9">
-        <div class="row align-items-center justify-content-center">
-          <div class="col text-center">
+        <div class="row align-items-center">
+          <div class="col-3 text-center">
             <h4 class="card-title">{{offer.legs[0].timeDeparture}}</h4>
             <h5 class="card-subtitle mb-2 text-muted">{{offer.legs[0].origin}}</h5>
           </div>
-          <div class="col text-center">
-            --- <i class="fas fa-plane"></i> ---
+          <div class="col-6 text-center align-self-center">
+            <div class="row align-items-center justify-content-center">
+              <div class="col"><p class="m-0"><small>10h 55m</small></p></div>
+              <div class="col-1"></div>
+            </div>
+            <div class="row align-items-center">
+              <div class="col p-0"><hr style="border: 2px solid #bbb; border-bottom-left-radius: 50px; border-top-left-radius: 50px;"></div>
+              <div class="col-auto p-0" *ngFor="let _ of numberOfStops()">
+                <div style="border: 3px solid orangered; border-radius: 100%; margin: 5px;"></div>
+              </div>
+              <div class="col p-0"><hr style="border: 2px solid #bbb; border-bottom-right-radius: 50px; border-top-right-radius: 50px;"></div>
+              <div class="col-auto"><i class="fas fa-plane"></i></div>
+            </div>
+            <div *ngIf="numberOfStops().length > 0" class="row align-items-center justify-content-center">
+              <div class="col"><p class="m-0"><small style="color: orangered;">{{numberOfStops().length}} {{numberOfStops().length == 1 ? 'stop' : 'stops'}}</small></p></div>
+              <div class="col-1"></div>
+            </div>
+            <div *ngIf="numberOfStops().length === 0" class="row align-items-center justify-content-center">
+              <div class="col"><p class="m-0"><small style="color: limegreen;">Direct</small></p></div>
+              <div class="col-1"></div>
+            </div>
           </div>
-          <div class="col text-center">
+          <div class="col-3 text-center">
             <h4 class="card-title">{{offer.legs[offer.legs.length-1].timeArrival}}</h4>
             <h5 class="card-subtitle mb-2 text-muted">{{offer.legs[offer.legs.length-1].dest}}</h5>
           </div>
         </div>
       </div>
       <div class="col-sm-3 text-center">
-        <h3 class="card-text">{{offer.price | currency:'EUR'}}</h3>
+        <h3 class="card-text mb-3">{{offer.price | currency:'EUR'}}</h3>
         <button href="#" class="btn btn-primary" (click)="onSelect($event)">Select</button>
       </div>
     </div>

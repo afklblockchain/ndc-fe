@@ -48,6 +48,15 @@ export class OfferService {
           },
           {
             origin: 'CDG',
+            dest: 'ATH',
+            timeDeparture: '12:10',
+            timeArrival: '13:45',
+            dateDeparture: '2018-10-11',
+            dateArrival: '2018-10-11',
+            flightNumber: 'KL12345',
+          },
+          {
+            origin: 'ATH',
             dest: 'LHR',
             timeDeparture: '12:10',
             timeArrival: '13:45',

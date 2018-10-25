@@ -23,6 +23,11 @@
 </div>
 
 <div class="container">
+  <div class="row" *ngIf="loading">
+    <div class="col-12 text-center">
+      <i class="fa fa-spinner fa-spin" style="font-size:24px"></i>
+    </div>
+  </div>
   <afkl-offer-list [offers]="offers"></afkl-offer-list>
   <br>
   <hr>

@@ -17,7 +17,7 @@ export class OfferService {
         currency: 'EUR',
         origin: 'AMS',
         dest: 'LHR',
-        travelTime: 1,
+        travelTime: 'P0Y0M0DT10H55M0.000S',
         legs: [
           {
             origin: 'AMS',
@@ -35,7 +35,7 @@ export class OfferService {
         currency: 'EUR',
         origin: 'AMS',
         dest: 'LHR',
-        travelTime: 3,
+        travelTime: 'P0Y0M0DT10H55M0.000S',
         legs: [
           {
             origin: 'AMS',
@@ -53,7 +53,7 @@ export class OfferService {
             timeArrival: '13:45',
             dateDeparture: '2018-10-11',
             dateArrival: '2018-10-11',
-            flightNumber: 'KL12345',
+            flightNumber: 'AF12345',
           },
           {
             origin: 'ATH',

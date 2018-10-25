@@ -23,4 +23,15 @@ export class OfferCardComponent implements OnInit {
   numberOfStops() {
     return Array(this.offer.legs.length - 1);
   }
+
+  logoUrl(airlineCode) {
+    return `https://www.skyscanner.net/images/airlines/favicon/${airlineCode}.png`;
+  }
+
+  flightTime(travelTime) {
+    const tIndex = travelTime.indexOf('T');
+    const hour = travelTime.substr(tIndex + 1, 2);
+    const min = travelTime.substr(tIndex + 4, 2);
+    return `${hour}h ${min}`;
+  }
 }

@@ -3,7 +3,7 @@ export interface Offer {
   currency: string;
   origin: string;
   dest: string;
-  travelTime: number;
+  travelTime: string;
   legs: Leg[];
 }
 

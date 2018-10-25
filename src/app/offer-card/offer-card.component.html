@@ -9,7 +9,7 @@
           </div>
           <div class="col-6 text-center align-self-center">
             <div class="row align-items-center justify-content-center">
-              <div class="col"><p class="m-0"><small>10h 55m</small></p></div>
+              <div class="col"><p class="m-0"><small>{{flightTime(offer.travelTime)}}</small></p></div>
               <div class="col-1"></div>
             </div>
             <div class="row align-items-center">
@@ -46,12 +46,14 @@
       <table cellpadding="10" style="width: 100%;">
         <tr>
           <td align="center">
-            <img style="width: 30px;" src="https://www.skyscanner.net/images/airlines/favicon/KL.png" alt="">
+            <img style="width: 30px;" [src]="logoUrl(leg.flightNumber.substring(0,2))" alt="">
           </td>
           <td colspan="2">{{leg.flightNumber}}</td>
         </tr>
         <tr>
-          <td rowspan="2" width="5%" align="center">a</td>
+          <td rowspan="2" width="5%" align="center" style="padding: 2px;">
+            <div class="offer-leg-circles"><div class="offer-leg"></div></div>
+          </td>
           <td width="10%">{{leg.timeDeparture}}</td>
           <td>{{leg.origin}}</td>
         </tr>

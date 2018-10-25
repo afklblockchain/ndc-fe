@@ -1,13 +1,24 @@
 <div class="offer-card card" (click)="showDetails = !showDetails">
   <div class="card-body">
-    <div class="row">
-      <div class="col-sm-6">
-        <h5 class="card-title">{{offer.legs[0].timeDeparture}} - {{offer.legs[offer.legs.length-1].timeArrival}}</h5>
-        <h6 class="card-subtitle mb-2 text-muted">{{offer.legs[0].origin}} - {{offer.legs[offer.legs.length-1].dest}}</h6>
+    <div class="row align-items-center">
+      <div class="col-sm-9">
+        <div class="row align-items-center justify-content-center">
+          <div class="col text-center">
+            <h4 class="card-title">{{offer.legs[0].timeDeparture}}</h4>
+            <h5 class="card-subtitle mb-2 text-muted">{{offer.legs[0].origin}}</h5>
+          </div>
+          <div class="col text-center">
+            --- <i class="fas fa-plane"></i> ---
+          </div>
+          <div class="col text-center">
+            <h4 class="card-title">{{offer.legs[offer.legs.length-1].timeArrival}}</h4>
+            <h5 class="card-subtitle mb-2 text-muted">{{offer.legs[offer.legs.length-1].dest}}</h5>
+          </div>
+        </div>
       </div>
-      <div class="col-sm-6">
-        <h3 class="card-text">{{offer.price}}</h3>
-        <a href="#" class="btn btn-primary">Select</a>
+      <div class="col-sm-3 text-center">
+        <h3 class="card-text">{{offer.price | currency:'EUR'}}</h3>
+        <button href="#" class="btn btn-primary" (click)="onSelect($event)">Select</button>
       </div>
     </div>
   </div>

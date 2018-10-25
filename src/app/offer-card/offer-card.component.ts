@@ -16,4 +16,7 @@ export class OfferCardComponent implements OnInit {
   ngOnInit() {
   }
 
+  onSelect(event) {
+    event.stopPropagation();
+  }
 }

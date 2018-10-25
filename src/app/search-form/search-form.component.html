@@ -28,13 +28,20 @@
 
     <div class="col-sm-3 my-1">
       <label for="dates">Departure Date</label>
-      <input type="text"
-             id="dates"
-             name="dates"
-             placeholder="Dates"
-             class="form-control"
-             [(ngModel)]="depart"
-             bsDatepicker>
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <div class="input-group-text">
+            <i class="fas fa-calendar-alt"></i>
+          </div>
+        </div>
+        <input type="text"
+               id="dates"
+               name="dates"
+               placeholder="Dates"
+               class="form-control"
+               [(ngModel)]="depart"
+               bsDatepicker>
+      </div>
     </div>
 
     <div class="col-sm-2 my-1">
